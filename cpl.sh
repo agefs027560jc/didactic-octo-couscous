@@ -2,6 +2,8 @@
 
 set -x -e
 
+../bin/rpcgen exchange.rrr
+
 g++ -c -I. -I ../src/rrr ex_proc.cc ex_svc.cc
 g++ -c -I. -I ../src/rrr ex_clnt.cc
 g++ ex_proc.o ex_svc.o -o rpc_svc -L ../build -lRRR -lMEMDB -lEXTERN_C -lpthread -L. -L ../src/rrr -lboost_coroutine -lboost_context -lboost_system
