@@ -16,17 +16,21 @@ sudo bash dep.sh
 cmake -G Ninja -S. -H. -B ./build
 cmake --build ./build
 
+# setup docker experiment
+sudo bash init-docker.sh
+cd docker/
+sudo docker build -t ubuntu_atc2022 .
+sudo docker run --name ubuntu_atc2022 -it ubuntu_atc2022
+sudo docker exec -it ubuntu_atc2022 /bin/bash
+
 # running sample code
+cd ../
 git clone https://github.com/agefs027560jc/didactic-octo-couscous.git sample
 cd sample/
 bash cpl.sh
 
 # running the paper experiment
-sudo bash init-docker.sh
-cd ../docker/
-sudo docker build -t ubuntu_atc2022 .
-sudo docker run --name ubuntu_atc2022 -it ubuntu_atc2022
-sudo docker exec -it ubuntu_atc2022 /bin/bash
+cd ../
 python3 test_run.py
 # should return something like https://github.com/stonysystems/depfast-ae#2-run-minimal-working-examples-locally-5minutes
 

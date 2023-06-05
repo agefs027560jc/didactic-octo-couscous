@@ -14,5 +14,5 @@ int main() {
     while (i--) {
         sleep(1);
     }
-
+    printf("exiting...\n");
 }
