@@ -8,6 +8,8 @@
 git clone --recursive https://github.com/agefs027560jc/depfast-ae.git depfast
 cd depfast/
 
+NOTE: better skip to docker experiment
+
 # install dependencies
 sudo bash dep.sh
 
@@ -19,8 +21,8 @@ cmake --build ./build
 # setup docker experiment
 sudo bash init-docker.sh
 cd docker/
-sudo docker build -t ubuntu_atc2022 .
-sudo docker run --name ubuntu_atc2022 -it ubuntu_atc2022
+sudo docker build --no-cache -t ubuntu_atc2022 .
+sudo docker run --rm --name ubuntu_atc2022 -it ubuntu_atc2022
 sudo docker exec -it ubuntu_atc2022 /bin/bash
 
 # running sample code
